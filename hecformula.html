@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGPA to Percentage</title>
+    <link rel="shortcut icon" type="image" href="https://www.google.com/search?q=logo+design&tbm=isch&chips=q:logo+design,g_1:circle:mtvwQgv02mU%3D&hl=en&sa=X&ved=2ahUKEwjkt4X34Iv9AhWlkScCHcK4BJEQ4lYoBHoECAEQLQ&biw=1211&bih=523#imgrc=Zdr0C0Lw25oJuM">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+    }
+
+    .calculator {
+        font-size: 20px;
+        margin: auto;
+        width: 1000px;
+        height: 500px;
+        padding: 35px 0;
+        text-align: center;
+        justify-content: center;
+        background: linear-gradient(rgba(0, 0, 0, 1), rgba(7, 7, 7, 0.4));
+        color: rgb(198, 206, 210);
+    }
+
+    .calculator h1 {
+        padding: 25px 0 50px 0;
+    }
+
+    .subs {
+        margin: 10px;
+        color: rgb(240, 238, 238);
+        display: flex;
+    }
+
+    .subs1 {
+        width: 800px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .subs2 {
+        width: 800px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .subs input,
+    .subs output {
+        width: 200px;
+        height: 30px;
+        font-size: 16px;
+        padding: 5px 7px;
+        margin: 5px;
+        border: none;
+        border-radius: 5px;
+    }
+
+    .subs2 h3,
+    .subs1 h3 {
+        margin: 5px 0 20px 0;
+    }
+
+    .subs1 label,
+    .subs2 label {
+        height: 100%;
+        left: 200px;
+        margin: 10px 0 -15px 0;
+        padding: 5px;
+        font-size: 15px;
+        font-weight: 200;
+        color: rgb(237, 239, 240);
+    }
+
+    .btn {
+        width: 100px;
+        height: 30px;
+        padding: 7px;
+        margin: 10px;
+        color: aliceblue;
+        font-size: 13px;
+        background: rgb(30, 24, 30);
+        border-radius: 3px;
+        border: none;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .btn:hover {
+        background: rgb(88, 204, 113);
+        color: rgb(7, 7, 7);
+        transition: 0.6s;
+    }
+footer{
+    background: black;
+    text-align: center;
+    color: aliceblue;
+}  
+
+</style>
+
+<body>
+    <div class="calculator">
+        <h1>HEC Calculator</h1>
+        <div class="subs">
+            <div class="subs1">
+                <h3>For Total CGPA 4</h3>
+                <label for="name">CGPA to Percentage</label>
+                <input type="tel" class="input" id="numberOne" placeholder="CGPA">
+                <button type="button" class="btn" onclick="func1()">Calculate</button>
+                <div><output id="resultOne" class="result"></output></div>
+                <label for="name">Percentage to CGPA</label>
+                <input type="text" class="input" id="numberTwo" placeholder="Percentage">
+                <button type="button" class="btn" onclick="func2()">Calculate</button>
+                <div><output id="resultTwo" class="result"></output></div>
+            </div>
+            <div class="subs2">
+                <h3>For Total CGPA 5</h3>
+                <label for="name">CGPA to Percentage</label>
+                <input type="text" class="input" id="numberThree" placeholder="CGPA">
+                <button type="button" class="btn" onclick="func3()">Calculate</button>
+                <div><output id="resultThree" class="result"></output></div>
+                <label for="name">Percentage to CGPA</label>
+                <input type="text" class="input" id="numberFour" placeholder="Percentage">
+                <button type="button" class="btn" onclick="func4()">Calculate</button>
+                <div><output id="resultFour" class="result"></output></div>
+            </div>
+        </div>
+    </div>
+    <footer> Muhammad Aqib &copy; February 2023 All rights reserved</footer>
+    <script>
+        var btn = document.getElementsByClassName("btn")
+        function func1() {
+            var a = parseFloat(document.getElementById('numberOne').value);
+            if (a > 4) {
+                var obtain = "Invalid Value";
+            }
+            else if (a >= 3.63) {
+                var obtain = (a - 0.3) / 0.037;
+            }
+            else if (a >= 3.25) {
+                var obtain = (a - 0.29) / 0.037;
+            }
+            else if (a >= 2.88) {
+                var obtain = (a - 0.36) / 0.036;
+            }
+            else if (a >= 2.5) {
+                var obtain = (a - 0.28) / 0.037;
+            }
+            else if (a >= 1.8) {
+                var obtain = (a + 1.65) / 0.069;
+            }
+            else if (a >= 1) {
+                var obtain = (a + 2.16) / 0.079;
+            }
+            else {
+                var obtain = a / 0.0248;
+            }
+            document.getElementById("resultOne").innerHTML = obtain;
+            btn.classList.add("focus");
+        }
+        function func2() {
+            var b = parseFloat(document.getElementById('numberTwo').value);
+            if (b > 100) {
+                var obtainTwo = "Invalid Value";
+            }
+            else if (b >= 90) {
+                var obtainTwo = 3.63 + (b - 90) * 0.037
+            }
+            else if (b >= 80) {
+                var obtainTwo = 3.25 + (b - 80) * 0.037
+            }
+            else if (b >= 70) {
+                var obtainTwo = 2.88 + (b - 70) * 0.036
+            }
+            else if (b >= 60) {
+                var obtainTwo = 2.5 + (b - 60) * 0.037
+            }
+            else if (b >= 50) {
+                var obtainTwo = 1.8 + (b - 50) * 0.069
+            }
+            else if (b >= 40) {
+                var obtainTwo = 1 + (b - 40) * 0.079
+            }
+            else {
+                var obtainTwo = 0 + (b - 0) * 0.0248
+            }
+            document.getElementById("resultTwo").innerHTML = obtainTwo;
+
+        }
+        function func3() {
+            var c = parseFloat(document.getElementById('numberThree').value);
+            if (c > 5) {
+                var obtainThree = "Invalid Value";
+            }
+            else if (c >= 4.63) {
+                var obtainThree = (c - 1.3) / 0.037;
+            }
+            else if (c >= 4.25) {
+                var obtainThree = (c - 1.29) / 0.037;
+            }
+            else if (c >= 3.88) {
+                var obtainThree = (c - 1.36) / 0.036;
+            }
+            else if (c >= 3.5) {
+                var obtainThree = (c - 1.28) / 0.037;
+            }
+            else if (c >= 2.8) {
+                var obtainThree = (c + 0.65) / 0.069;
+            }
+            else if (c >= 2) {
+                var obtainThree = (c + 1.16) / 0.079;
+            }
+            else {
+                var obtainThree = (c - 1) / 0.0248;
+            }
+            document.getElementById("resultThree").innerHTML = obtainThree;
+
+        }
+        function func4() {
+            var d = parseFloat(document.getElementById('numberFour').value);
+            if (d > 100) {
+                var obtainFour = "Invalid Value";
+            }
+            else if (d >= 90) {
+                var obtainFour = 4.63 + (d - 90) * 0.037
+            }
+            else if (d >= 80) {
+                var obtainFour = 4.25 + (d - 80) * 0.037
+            }
+            else if (d >= 70) {
+                var obtainFour = 3.88 + (d - 70) * 0.036
+            }
+            else if (d >= 60) {
+                var obtainFour = 3.5 + (d - 60) * 0.037
+            }
+            else if (d >= 50) {
+                var obtainFour = 2.8 + (d - 50) * 0.069
+            }
+            else if (d >= 40) {
+                var obtainFour = 2 + (d - 40) * 0.079
+            }
+            else {
+                var obtainFour = 1 + (d - 0) * 0.0248
+            }
+            document.getElementById("resultFour").innerHTML = obtainFour;
+
+        }
+    </script>
+</body>
+
+</html>
